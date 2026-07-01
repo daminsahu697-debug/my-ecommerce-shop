@@ -5,10 +5,9 @@ import dotenv from 'dotenv';
 import { createClient } from '@supabase/supabase-js';
 
 dotenv.config();
-
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 // Initialize Supabase admin inside your backend
-const supabase = createClient('https://kziytsrnwfkrgcbfpdlb.supabase.co', 'sb_publishable_lzxVEPCBCQWma7lm2Q7WmA_xJ5kzugv');
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
 
 const app = express();
 app.use(cors());
