@@ -6,7 +6,7 @@ import { createClient } from '@supabase/supabase-js';
 
 dotenv.config();
 
-const stripe = new Stripe('sk_test_51TnvFuJozG90AEBw8RLBDm1m7GoT5lImkRjE0kq2rPmOjIocUkcLtPvJtgs8mh9JnZ35H0t8WuKgViy1qihrogLz00ThiLGyCq');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 // Initialize Supabase admin inside your backend
 const supabase = createClient('https://kziytsrnwfkrgcbfpdlb.supabase.co', 'sb_publishable_lzxVEPCBCQWma7lm2Q7WmA_xJ5kzugv');
 
